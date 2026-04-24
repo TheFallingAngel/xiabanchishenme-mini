@@ -1,0 +1,69 @@
+# 不要把本地 node_modules 打进镜像,Dockerfile 里会重新 npm ci
+node_modules
+.npm
+.pnp.*
+.yarn
+
+# 构建产物 (builder stage 会现场跑 build 产生)
+.next
+out
+build
+dist
+*.tsbuildinfo
+
+# Vercel 残留
+.vercel
+.vercel/
+
+# 测试产物
+coverage
+.coverage
+test-results
+playwright-report
+.nyc_output
+.pytest_cache
+
+# 环境变量 (必须走云托管环境变量配置,不要打进镜像)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.preview
+
+# macOS / Windows
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git / CI
+.git
+.github
+
+# 日志
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# 文档 (打进镜像浪费空间,也不参与运行)
+README.md
+*.md
+docs/
+
+# 评测 / 测试用数据
+eval/
+memory/
+tests/
+
+# Claude code 本地配置
+.claude
+
+# LibreOffice 锁
+.~lock.*#

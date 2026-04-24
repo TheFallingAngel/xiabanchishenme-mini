@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "taskId": "xiaban-chishenme-dinner-purity-fix-2026-04-07",
+  "taskTitle": "Minimally fix dinner-intent recommendation purity",
+  "taskPath": "/Volumes/Zee/.openclaw/workspace/company/projects/xiaban-chishenme/app",
+  "agentId": "main",
+  "currentStep": {
+    "index": 3,
+    "name": "Validation report and checkpointing",
+    "status": "completed"
+  },
+  "completedSteps": [
+    {
+      "index": 0,
+      "name": "Inspect recommendation pipeline",
+      "completedAt": "2026-04-07T21:05:00+08:00",
+      "summary": "定位到 category 截断导致晚餐黑名单失效。"
+    },
+    {
+      "index": 1,
+      "name": "Implement shared dinner-intent helper",
+      "completedAt": "2026-04-07T21:12:00+08:00",
+      "summary": "新增 helper，并在 Amap 与推荐层双重接入。"
+    },
+    {
+      "index": 2,
+      "name": "Build and verification attempts",
+      "completedAt": "2026-04-07T21:22:00+08:00",
+      "summary": "构建通过；真实 API 验证受端口与网络沙箱限制阻断。"
+    },
+    {
+      "index": 3,
+      "name": "Validation report and checkpointing",
+      "completedAt": "2026-04-07T21:27:11+08:00",
+      "summary": "报告落到 app/eval，并补齐 memory/checkpoint。"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Volumes/Zee/.openclaw/workspace/company/projects/xiaban-chishenme/app/src/lib/dinner-intent.ts",
+      "description": "Shared dinner-intent filtering helper"
+    },
+    {
+      "path": "/Volumes/Zee/.openclaw/workspace/company/projects/xiaban-chishenme/app/eval/recommendation-purity-fix-2026-04-07.md",
+      "description": "Validation report stored under app due sandbox write restriction"
+    }
+  ],
+  "blockers": [
+    {
+      "description": "Sandbox forbids binding a local port and resolving restapi.amap.com, so real API spot checks could not run here.",
+      "since": "2026-04-07T21:18:00+08:00",
+      "severity": "medium"
+    }
+  ],
+  "nextActions": [
+    "Re-run real API verification for 体育西路 and 珠江新城 in an environment with outbound network access.",
+    "Move or copy the validation report into the project root eval directory once write access is available."
+  ],
+  "contextDigest": "本次任务只做晚餐推荐纯度最小修复。根因是 Amap `poi.type` 被截成首段，导致推荐层无法识别咖啡/茶饮/甜品细分类。修复方案是在 `src/lib/dinner-intent.ts` 中统一基于 `typecode`、名称与分类路径判定晚餐资格，并在 Amap 映射和推荐层同时应用。构建通过；真实 API 验证受沙箱端口与网络限制阻断，已用实际编译后的 helper + 推荐逻辑对 Stage 5 暴露的污染样本做合成验证。",
+  "decisionLog": [
+    {
+      "decision": "Use a shared dinner-intent helper instead of scattering keyword checks.",
+      "reason": "Keeps API filtering and recommendation fallback aligned with the smallest architectural change.",
+      "date": "2026-04-07",
+      "alternatives": "Only adjust recommend.ts, which would leave the source pool polluted."
+    },
+    {
+      "decision": "Keep `category` user-friendly while storing `categoryPath` and `typecode` for filtering.",
+      "reason": "Avoids degrading favorites/history display while restoring enough detail for dinner filtering.",
+      "date": "2026-04-07",
+      "alternatives": "Overwrite `category` with the full raw Amap type path."
+    }
+  ],
+  "timestamps": {
+    "created": "2026-04-07T21:05:00+08:00",
+    "updated": "2026-04-07T21:27:11+08:00",
+    "resumed": null
+  },
+  "stale": false
+}

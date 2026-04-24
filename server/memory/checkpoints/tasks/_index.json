@@ -1,0 +1,12 @@
+{
+  "activeTaskId": "xiaban-chishenme-dinner-purity-fix-2026-04-07",
+  "tasks": [
+    {
+      "taskId": "xiaban-chishenme-dinner-purity-fix-2026-04-07",
+      "title": "Minimally fix dinner-intent recommendation purity",
+      "status": "completed",
+      "updated": "2026-04-07T21:27:11+08:00",
+      "path": "memory/checkpoints/tasks/xiaban-chishenme-dinner-purity-fix-2026-04-07.json"
+    }
+  ]
+}

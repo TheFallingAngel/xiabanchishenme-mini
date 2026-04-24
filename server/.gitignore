@@ -1,0 +1,10 @@
+node_modules
+.next
+.env.local
+.vercel
+# Vitest coverage 产物
+.coverage
+coverage
+# Playwright / E2E
+test-results
+playwright-report

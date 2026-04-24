@@ -1,0 +1,106 @@
+# 下班吃什么 · 小程序项目 · .gitignore
+# 覆盖 server/ (Next.js 后端) + 未来的 miniapp/ (Taro 前端) + shared/ 等子包
+
+# ---------- 依赖 ----------
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+!.yarn/sdks
+
+# ---------- Next.js 构建产物 ----------
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# ---------- Taro 构建产物 (M3 以后用) ----------
+.taro-cache/
+.swc/
+
+# ---------- 小程序开发工具产出 ----------
+# 微信开发者工具的项目私有配置
+project.private.config.json
+# 调试产物
+miniprogram_npm/
+
+# ---------- 测试产物 ----------
+coverage/
+.coverage/
+test-results/
+playwright-report/
+.nyc_output/
+
+# ---------- 环境变量 (严禁提交) ----------
+# AMAP_API_KEY / MINIMAX_API_KEY / BLOB_READ_WRITE_TOKEN / KV_REST_API_* 等
+# 云托管环境变量在控制台配,本地 dev 用 .env.local
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.preview
+# 模板文件允许提交
+!.env.example
+
+# ---------- Vercel (旧 H5 遗留,新仓库不再用) ----------
+.vercel/
+
+# ---------- 证书 / 密钥 ----------
+*.pem
+*.key
+*.crt
+
+# ---------- macOS ----------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ---------- Windows ----------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- Editor / IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ---------- 日志 ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Python (如果有辅助脚本) ----------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+
+# ---------- 临时 / 备份 ----------
+*.tmp
+*.bak
+*.orig
+.cache/
+# LibreOffice / WPS 打开 xlsx/docx 时留的文件锁
+.~lock.*#
+
+# ---------- Claude Code 本地配置 ----------
+.claude/
+
+# ---------- Docker 本地测试留的临时文件 ----------
+.docker-build-cache/
