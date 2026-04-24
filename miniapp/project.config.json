@@ -1,5 +1,5 @@
 {
-  "miniprogramRoot": "./dist/weapp/",
+  "miniprogramRoot": "dist/weapp/",
   "projectname": "xiabanchishenme-mini",
   "description": "下班吃什么 · 微信小程序",
   "appid": "wxccf99d55946fb219",
@@ -40,7 +40,12 @@
     "minifyWXML": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.32.3",
@@ -49,5 +54,9 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
 }
