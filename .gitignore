@@ -19,9 +19,11 @@ build/
 dist/
 *.tsbuildinfo
 
-# ---------- Taro 构建产物 (M3 以后用) ----------
+# ---------- Taro 构建产物 ----------
 .taro-cache/
 .swc/
+miniapp/dist/
+miniapp/.temp/
 
 # ---------- 小程序开发工具产出 ----------
 # 微信开发者工具的项目私有配置

@@ -1,0 +1,20 @@
+/* 全局样式 —— 微信小程序默认 WXSS 里各种 box-sizing/reset 都不统一,先补一层兜底 */
+
+page {
+  background: #fff8f0;
+  color: #2a1f16;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
+    "Hiragino Sans GB", sans-serif;
+}
+
+view,
+text,
+button,
+input {
+  box-sizing: border-box;
+}
+
+/* 去掉小程序 button 默认的边框和背景 */
+button::after {
+  border: none;
+}

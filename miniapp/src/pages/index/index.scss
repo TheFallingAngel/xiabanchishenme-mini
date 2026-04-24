@@ -1,0 +1,84 @@
+/* 首页 M3 骨架 —— 视觉不求精,重点是结构能跑 */
+
+.home {
+  min-height: 100vh;
+  padding: 24px 20px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    font-size: 44rpx;
+    font-weight: bold;
+    color: #2a1f16;
+  }
+
+  &__badge {
+    font-size: 22rpx;
+    background: #fceab5;
+    color: #a4770b;
+    padding: 4rpx 14rpx;
+    border-radius: 100rpx;
+  }
+
+  &__subtitle {
+    font-size: 24rpx;
+    color: #8a7566;
+    margin-bottom: 24px;
+  }
+
+  &__loading,
+  &__error {
+    padding: 40rpx;
+    text-align: center;
+    color: #8a7566;
+  }
+
+  &__error {
+    color: #c54141;
+  }
+
+  &__count {
+    font-size: 26rpx;
+    color: #8a7566;
+    margin-bottom: 20rpx;
+  }
+
+  &__list {
+    max-height: calc(100vh - 200rpx);
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.04);
+
+  &__name {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #2a1f16;
+    margin-bottom: 12rpx;
+  }
+
+  &__meta {
+    font-size: 24rpx;
+    color: #8a7566;
+    margin-bottom: 10rpx;
+  }
+
+  &__tags {
+    font-size: 22rpx;
+    color: #a4770b;
+    background: #fff8e6;
+    padding: 8rpx 14rpx;
+    border-radius: 8rpx;
+    display: inline-block;
+  }
+}

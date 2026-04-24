@@ -1,0 +1,44 @@
+{
+  "name": "xiabanchishenme-mini-miniapp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "下班吃什么 · 微信小程序前端 (Taro 3 · React)",
+  "engines": {
+    "node": ">=18.0.0 <22.0.0"
+  },
+  "scripts": {
+    "dev:weapp": "taro build --type weapp --watch",
+    "build:weapp": "taro build --type weapp",
+    "dev:h5": "taro build --type h5 --watch",
+    "build:h5": "taro build --type h5"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.25.0",
+    "@tarojs/components": "3.6.38",
+    "@tarojs/helper": "3.6.38",
+    "@tarojs/plugin-framework-react": "3.6.38",
+    "@tarojs/plugin-platform-weapp": "3.6.38",
+    "@tarojs/react": "3.6.38",
+    "@tarojs/router": "3.6.38",
+    "@tarojs/runtime": "3.6.38",
+    "@tarojs/shared": "3.6.38",
+    "@tarojs/taro": "3.6.38",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0",
+    "@tarojs/cli": "3.6.38",
+    "@tarojs/webpack5-runner": "3.6.38",
+    "@types/react": "^18.2.66",
+    "@types/webpack-env": "^1.18.4",
+    "babel-preset-taro": "3.6.38",
+    "postcss": "^8.4.38",
+    "typescript": "^5.4.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "webpack": "5.88.2",
+      "webpackbar": "5.0.2"
+    }
+  }
+}

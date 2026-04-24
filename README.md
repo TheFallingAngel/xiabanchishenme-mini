@@ -18,14 +18,31 @@ H5 那边已经趋于稳定,这边从那边复用:
 
 ```
 xiabanchishenme-mini/
-├── server/                    ← Next.js API-only 后端,部署到微信云托管 (M1)
-│   ├── src/
-│   │   ├── app/api/           ← 所有 /api/* 路由,和 H5 共用一致
-│   │   └── lib/               ← 后端用到的 amap / minimax / 图像打标等
+├── server/                    ← Next.js API-only 后端,部署到微信云托管 (M1) ✅
+│   ├── src/app/api/           ← 所有 /api/* 路由,和 H5 共用一致
 │   ├── Dockerfile             ← 微信云托管直接读这个文件构建镜像
 │   └── .dockerignore
-├── miniapp/                   ← Taro 3 小程序前端 (M3 以后建立)
-├── shared/                    ← 前后端共用的纯函数 TS lib (M3 以后建立)
+├── shared/                    ← 跨平台纯函数业务库 (M3 建立)
+│   ├── types.ts
+│   ├── match-score.ts
+│   ├── budget.ts
+│   ├── reason-context.ts
+│   ├── user-profile.ts
+│   ├── recommend.ts
+│   ├── health-tags.ts
+│   ├── mock-data.ts
+│   ├── storage.ts             ← 含 localStorage 依赖,miniapp 在 app 入口 shim
+│   └── README.md              ← 什么文件能跨平台、什么需要适配
+├── miniapp/                   ← Taro 3 微信小程序前端 (M3 建立)
+│   ├── config/                ← Taro 构建配置
+│   ├── src/
+│   │   ├── app.tsx            ← 含 Taro storage shim + wx.cloud.init
+│   │   ├── app.config.ts      ← 小程序 app.json (pages/window/permission)
+│   │   ├── lib/request.ts     ← wx.cloud.callContainer 封装
+│   │   └── pages/index/       ← 首页骨架,调云托管验证端到端
+│   ├── project.config.json    ← AppID: wxccf99d55946fb219
+│   ├── tsconfig.json          ← path alias @/* 和 @shared/*
+│   └── README.md              ← 怎么启动 / 怎么连微信开发者工具
 ├── DEPLOY-CLOUDRUN.md         ← 云托管部署手册
 ├── README.md                  ← 本文件
 └── .gitignore
@@ -35,14 +52,14 @@ xiabanchishenme-mini/
 
 按里程碑推进,M1 开跑:
 
-| 里程碑 | 内容 | 预估 |
-|---|---|---|
-| **M1** | 后端容器化 + 微信云托管部署 | 2-3 天 |
-| **M2** | KV/Blob 抽象层 + 腾讯 CloudBase/COS 迁移 | 2-3 天 |
-| **M3** | Taro 脚手架 + 共享 lib 抽取 | 1-2 天 |
-| **M4** | 5 个核心页面 Taro 迁移 | 1-1.5 周 |
-| **M5** | 小程序专属 (wx.login / 定位 / 内容安全) | 3-5 天 |
-| **M6** | 代码审核 + 上线 | 3-7 天 (含微信审核) |
+| 里程碑 | 内容 | 预估 | 状态 |
+|---|---|---|---|
+| **M1** | 后端容器化 + 微信云托管部署 | 2-3 天 | ✅ 已完成 |
+| **M2** | KV/Blob 抽象层 + 腾讯 CloudBase/COS 迁移 | 2-3 天 | ⏳ 待启动 |
+| **M3** | Taro 脚手架 + 共享 lib 抽取 | 1-2 天 | 🚧 进行中 |
+| **M4** | 5 个核心页面 Taro 迁移 | 1-1.5 周 | ⏳ |
+| **M5** | 小程序专属 (wx.login / 定位 / 内容安全) | 3-5 天 | ⏳ |
+| **M6** | 代码审核 + 上线 | 3-7 天 (含微信审核) | ⏳ |
 
 总计 4 周全职。
 
