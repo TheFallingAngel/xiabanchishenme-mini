@@ -1,20 +1,42 @@
+@import "./styles/theme.scss";
+
 /* 全局样式 —— 微信小程序默认 WXSS 里各种 box-sizing/reset 都不统一,先补一层兜底 */
 
 page {
-  background: #fff8f0;
-  color: #2a1f16;
+  background: $color-cream;
+  color: $color-text-primary;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
     "Hiragino Sans GB", sans-serif;
+  font-size: $font-base;
+  line-height: 1.5;
 }
 
 view,
 text,
 button,
-input {
+input,
+scroll-view {
   box-sizing: border-box;
 }
 
 /* 去掉小程序 button 默认的边框和背景 */
 button::after {
   border: none;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  line-height: 1.5;
+}
+
+/* 文本默认不 inherit line-height,补一下 */
+text {
+  line-height: inherit;
+}
+
+/* image 默认 inline,改 block 避免莫名的底部对齐空白 */
+image {
+  display: block;
 }

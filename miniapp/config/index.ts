@@ -24,7 +24,15 @@ export default defineConfig(async (merge, { command, mode }) => {
     plugins: ["@tarojs/plugin-framework-react", "@tarojs/plugin-platform-weapp"],
     defineConstants: {},
     copy: {
-      patterns: [],
+      // tabBar icon 必须是编译后产物里的静态文件,Taro 不会自动把 src/assets
+      // 搬进 dist,手动 copy。iconPath 在 app.config.ts 里用相对 dist 根的
+      // 路径 "assets/tabbar/xxx.png",正好和下面 to 目标对上。
+      patterns: [
+        {
+          from: "src/assets/tabbar/",
+          to: `dist/${process.env.TARO_ENV}/assets/tabbar/`,
+        },
+      ],
       options: {},
     },
     framework: "react" as const,

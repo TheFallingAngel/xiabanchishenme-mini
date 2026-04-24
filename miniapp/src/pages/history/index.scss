@@ -1,0 +1,42 @@
+@import "@/styles/theme.scss";
+
+.page {
+  min-height: 100vh;
+  padding: $space-xl $space-lg $space-xl;
+
+  &__header {
+    margin-bottom: $space-lg;
+  }
+
+  &__title {
+    font-size: $font-2xl;
+    font-weight: $weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 0;
+  }
+}
+
+.placeholder {
+  &__emoji {
+    font-size: 80rpx;
+    margin-bottom: $space-md;
+  }
+
+  &__title {
+    font-size: $font-lg;
+    color: $color-text-secondary;
+    margin-bottom: $space-sm;
+  }
+
+  &__desc {
+    font-size: $font-sm;
+    color: $color-text-muted;
+  }
+}
