@@ -9,8 +9,7 @@ export default defineAppConfig({
     "pages/history/index",
     "pages/favorites/index",
     "pages/profile/index",
-    // M4.3 加详情页:
-    // "pages/restaurant/index",
+    "pages/restaurant/index",
   ],
   window: {
     backgroundTextStyle: "light",
@@ -19,9 +18,9 @@ export default defineAppConfig({
     navigationBarTextStyle: "black",
   },
   tabBar: {
-    color: "#8A7566",         // 未激活文字色
-    selectedColor: "#C54141", // 激活文字色 (深红品牌色)
-    backgroundColor: "#FFFFFF",
+    color: "#718096",          // 未激活 (H5 muted)
+    selectedColor: "#C41E3A",  // 激活 (H5 deep-red)
+    backgroundColor: "#FFFEF9", // H5 cream
     borderStyle: "white",
     list: [
       {

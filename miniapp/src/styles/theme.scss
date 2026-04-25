@@ -1,85 +1,76 @@
 /**
  * 设计令牌 (Design Tokens) ——
- * 所有颜色 / 间距 / 圆角 / 字号统一写这里,页面 / 组件 @import 使用,避免硬编码。
- * 与 H5 Tailwind 主题对齐,色值同源。
+ * 严格 1:1 对齐 H5 的 tailwind.config.ts 色板,确保小程序视觉和已审核 H5 一致。
+ * 来源:xiaban-chishenme/app/tailwind.config.ts
  */
 
-// ===== 颜色 =====
+// ===== H5 色板 (一字不差) =====
 
-// 品牌主色:深红,和骰子 + 漆碗 + 灯笼的文化记忆一致
-$color-primary: #C54141;
-$color-primary-dark: #9A2424;
-$color-primary-light: #E06B6B;
+$color-cream: #FFFEF9;            // 暖白底 (页面 / 卡片)
+$color-deep-red: #C41E3A;         // 品牌主色 (按钮 / 链接 / CTA)
+$color-deep-red-dark: #A3182F;    // 按下/渐变深端
+$color-gold: #D4AF37;             // 强调金色 (评分星 / 进度等)
+$color-gold-light: #F5E6B8;       // 浅金 (徽章底 / 提示框)
+$color-secondary: #2D3748;        // 主文字 (深 slate)
+$color-muted: #718096;            // 次要文字 (较浅 slate)
+$color-surface: #FFFEF9;          // 表面 = cream
 
-// 暖底色
-$color-cream: #FFF8F0;
-$color-peach: #EBCCA6;
-$color-peach-light: #F7E9D4;
+// 别名 (业务含义清晰一些,值同 deep-red)
+$color-primary: $color-deep-red;
+$color-primary-dark: $color-deep-red-dark;
+$color-accent: $color-gold;
 
-// 金色点缀 (高亮 / 徽章)
-$color-gold: #D4A045;
-$color-gold-light: #FCEAB5;
-
-// 文字
-$color-text-primary: #2A1F16;
-$color-text-secondary: #5E4B3A;
-$color-text-muted: #8A7566;
-$color-text-disabled: #BFB0A3;
-$color-text-on-dark: #FFFFFF;
-
-// 面 / 卡片
-$color-surface: #FFFFFF;
-$color-surface-alt: #F7F3EC;
-$color-border: #E8DED0;
-$color-border-light: #F0E6D8;
-
-// 状态色
+// 派生:边框 / 浅底 / 错误
+$color-border: rgba(0, 0, 0, 0.06);
+$color-border-light: rgba(0, 0, 0, 0.04);
+$color-surface-alt: #F7F2E8;       // 米黄底 (推荐理由 bubble 用)
+$color-error: $color-deep-red;
 $color-success: #4A9D5F;
-$color-warning: #E3A43E;
-$color-danger: $color-primary;
 
-// ===== 间距 (rpx) =====
-// 小程序 750rpx 对齐 iPhone6 375pt,所以 1pt = 2rpx
-$space-xs: 8rpx;    // 4pt
-$space-sm: 16rpx;   // 8pt
-$space-md: 24rpx;   // 12pt
-$space-lg: 32rpx;   // 16pt
-$space-xl: 48rpx;   // 24pt
-$space-2xl: 64rpx;  // 32pt
+// 阴影 (H5 tailwind boxShadow,转 rpx)
+$shadow-card: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
+$shadow-card-hover: 0 8rpx 40rpx rgba(0, 0, 0, 0.10);
+$shadow-float: 0 16rpx 60rpx rgba(0, 0, 0, 0.12);
 
-// ===== 圆角 =====
-$radius-sm: 8rpx;
-$radius-md: 16rpx;
-$radius-lg: 24rpx;
-$radius-xl: 32rpx;
-$radius-full: 9999rpx;
+// ===== 间距 (rpx, 1pt = 2rpx) =====
+$space-2xs: 4rpx;
+$space-xs: 8rpx;
+$space-sm: 12rpx;
+$space-md: 16rpx;
+$space-lg: 24rpx;
+$space-xl: 32rpx;
+$space-2xl: 40rpx;
+$space-3xl: 48rpx;
+$space-4xl: 64rpx;
 
-// ===== 阴影 =====
-// 小程序 box-shadow 支持有限,用温和的 y-offset + blur
-$shadow-card: 0 2rpx 16rpx rgba(0, 0, 0, 0.04);
-$shadow-card-hover: 0 6rpx 24rpx rgba(0, 0, 0, 0.08);
-$shadow-elevated: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+// ===== 圆角 (H5 tailwind 默认 rounded-* 值) =====
+$radius-tiny: 8rpx;       // rounded (4px)
+$radius-sm: 12rpx;        // rounded-md (6px)
+$radius-md: 16rpx;        // rounded-lg (8px)
+$radius-lg: 24rpx;        // rounded-xl (12px)
+$radius-card: 32rpx;      // rounded-2xl (16px)
+$radius-xl: 48rpx;        // rounded-3xl (24px)
+$radius-full: 9999rpx;    // rounded-full
 
 // ===== 字号 =====
-$font-xs: 20rpx;    // 10pt
-$font-sm: 24rpx;    // 12pt
-$font-base: 28rpx;  // 14pt (正文默认)
-$font-md: 30rpx;    // 15pt
-$font-lg: 34rpx;    // 17pt
-$font-xl: 40rpx;    // 20pt
-$font-2xl: 48rpx;   // 24pt
+$font-h1: 56rpx;
+$font-h2: 48rpx;
+$font-card-title: 40rpx;
+$font-detail-title: 36rpx;
+$font-action: 32rpx;
+$font-body: 28rpx;
+$font-aux: 26rpx;
+$font-tag: 24rpx;
+$font-micro: 22rpx;
+$font-tiny: 20rpx;
 
 // ===== 字重 =====
 $weight-regular: 400;
 $weight-medium: 500;
-$weight-bold: 600;
-$weight-heavy: 700;
+$weight-semibold: 600;
+$weight-bold: 700;
 
 // ===== Z-index =====
-// tab bar: 100 (WeChat 原生 tabBar 是 500+,但 H5 预览里我们可能需要自己画)
-// 全局 toast: 2000
-// 弹窗 drawer: 1000
-// 遮罩 mask: 900
 $z-mask: 900;
 $z-drawer: 1000;
 $z-toast: 2000;

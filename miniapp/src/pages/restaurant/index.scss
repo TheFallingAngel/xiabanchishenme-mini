@@ -1,0 +1,32 @@
+@import "@/styles/theme.scss";
+
+.restaurant-stub {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3xl;
+
+  &__hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+    text-align: center;
+  }
+
+  &__emoji {
+    font-size: 80rpx;
+  }
+
+  &__title {
+    font-size: $font-action;
+    font-weight: $weight-semibold;
+    color: $color-secondary;
+  }
+
+  &__desc {
+    font-size: $font-aux;
+    color: $color-muted;
+  }
+}

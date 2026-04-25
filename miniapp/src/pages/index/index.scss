@@ -1,84 +1,79 @@
-/* 首页 M3 骨架 —— 视觉不求精,重点是结构能跑 */
+@import "@/styles/theme.scss";
 
 .home {
   min-height: 100vh;
-  padding: 24px 20px;
+  padding-top: $space-2xl;
+  padding-bottom: 140rpx; // 给 tabBar 留位
 
   &__header {
+    padding: 0 $space-xl;
+    margin-bottom: $space-md;
+  }
+
+  &__title-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: $space-xs;
   }
 
   &__title {
-    font-size: 44rpx;
-    font-weight: bold;
-    color: #2a1f16;
+    font-size: 48rpx;
+    font-weight: $weight-bold;
+    color: $color-secondary;
+    letter-spacing: -0.4rpx;
   }
 
   &__badge {
-    font-size: 22rpx;
-    background: #fceab5;
-    color: #a4770b;
-    padding: 4rpx 14rpx;
-    border-radius: 100rpx;
+    font-size: $font-tag;
+    background: $color-gold-light;
+    color: #936e0e;
+    padding: 4rpx 16rpx;
+    border-radius: $radius-full;
+    font-weight: $weight-medium;
   }
 
-  &__subtitle {
-    font-size: 24rpx;
-    color: #8a7566;
-    margin-bottom: 24px;
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: $space-2xs;
+    font-size: $font-aux;
+    color: $color-muted;
   }
 
-  &__loading,
-  &__error {
-    padding: 40rpx;
-    text-align: center;
-    color: #8a7566;
-  }
-
-  &__error {
-    color: #c54141;
-  }
-
-  &__count {
+  &__pin {
     font-size: 26rpx;
-    color: #8a7566;
-    margin-bottom: 20rpx;
+    line-height: 1;
   }
 
-  &__list {
-    max-height: calc(100vh - 200rpx);
+  &__loc-text {
+    font-size: $font-aux;
+  }
+
+  &__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $space-4xl 0;
+  }
+
+  &__spinner {
+    width: 56rpx;
+    height: 56rpx;
+    border: 6rpx solid $color-deep-red;
+    border-top-color: transparent;
+    border-radius: 50%;
+    margin-bottom: $space-md;
+    animation: spin 800ms linear infinite;
+  }
+
+  &__loading-text {
+    font-size: $font-aux;
+    color: $color-muted;
   }
 }
 
-.card {
-  background: white;
-  border-radius: 24rpx;
-  padding: 28rpx;
-  margin-bottom: 20rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.04);
-
-  &__name {
-    font-size: 30rpx;
-    font-weight: bold;
-    color: #2a1f16;
-    margin-bottom: 12rpx;
-  }
-
-  &__meta {
-    font-size: 24rpx;
-    color: #8a7566;
-    margin-bottom: 10rpx;
-  }
-
-  &__tags {
-    font-size: 22rpx;
-    color: #a4770b;
-    background: #fff8e6;
-    padding: 8rpx 14rpx;
-    border-radius: 8rpx;
-    display: inline-block;
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

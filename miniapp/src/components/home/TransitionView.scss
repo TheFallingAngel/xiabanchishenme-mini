@@ -1,0 +1,30 @@
+@import "@/styles/theme.scss";
+
+.transition-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4xl 0;
+
+  &__spinner {
+    width: 56rpx;
+    height: 56rpx;
+    border: 6rpx solid $color-deep-red;
+    border-top-color: transparent;
+    border-radius: 50%;
+    margin-bottom: $space-lg;
+    animation: spin 800ms linear infinite;
+  }
+
+  &__text {
+    font-size: $font-body;
+    color: $color-muted;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

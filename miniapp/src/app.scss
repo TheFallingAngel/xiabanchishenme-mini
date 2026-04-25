@@ -4,10 +4,10 @@
 
 page {
   background: $color-cream;
-  color: $color-text-primary;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
-    "Hiragino Sans GB", sans-serif;
-  font-size: $font-base;
+  color: $color-secondary;
+  font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans CN",
+    "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  font-size: $font-body;
   line-height: 1.5;
 }
 

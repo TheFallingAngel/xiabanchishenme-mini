@@ -2,16 +2,16 @@
 
 .page {
   min-height: 100vh;
-  padding: $space-xl $space-lg $space-xl;
+  padding: $space-2xl $space-xl $space-xl;
 
   &__header {
-    margin-bottom: $space-lg;
+    margin-bottom: $space-xl;
   }
 
   &__title {
-    font-size: $font-2xl;
+    font-size: $font-h1;
     font-weight: $weight-bold;
-    color: $color-text-primary;
+    color: $color-secondary;
   }
 
   &__placeholder {
@@ -26,17 +26,18 @@
 .placeholder {
   &__emoji {
     font-size: 80rpx;
-    margin-bottom: $space-md;
+    margin-bottom: $space-lg;
   }
 
   &__title {
-    font-size: $font-lg;
-    color: $color-text-secondary;
-    margin-bottom: $space-sm;
+    font-size: $font-action;
+    font-weight: $weight-semibold;
+    color: $color-secondary;
+    margin-bottom: $space-xs;
   }
 
   &__desc {
-    font-size: $font-sm;
-    color: $color-text-muted;
+    font-size: $font-aux;
+    color: $color-muted;
   }
 }

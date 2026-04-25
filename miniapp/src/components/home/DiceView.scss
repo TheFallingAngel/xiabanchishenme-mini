@@ -1,0 +1,70 @@
+@import "@/styles/theme.scss";
+
+.dice-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-2xl $space-xl 0;
+
+  &__cube {
+    width: 350rpx;
+    height: 350rpx;
+    border-radius: 80rpx;
+    background: linear-gradient(135deg, #B83A2A 0%, #8B2D1F 100%);
+    box-shadow: $shadow-float;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    margin-top: $space-md;
+    margin-bottom: $space-2xl;
+    transition: transform 200ms ease-out;
+    border: none;
+    padding: 0;
+
+    &--pressed {
+      transform: scale(0.95);
+    }
+
+    &--shaking {
+      animation: dice-shake 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      opacity: 0.8;
+    }
+  }
+
+  &__cube-row {
+    display: flex;
+    gap: $space-xl;
+  }
+
+  &__emoji {
+    font-size: 64rpx;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.85);
+
+    &--single {
+      font-size: 64rpx;
+    }
+  }
+
+  &__title {
+    font-size: 40rpx;
+    font-weight: $weight-bold;
+    color: $color-secondary;
+    margin-bottom: $space-xs;
+  }
+
+  &__desc {
+    font-size: $font-body;
+    color: $color-muted;
+  }
+}
+
+@keyframes dice-shake {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0); }
+  20% { transform: translate3d(-8rpx, -4rpx, 0) rotate(-3deg); }
+  40% { transform: translate3d(8rpx, -4rpx, 0) rotate(3deg); }
+  60% { transform: translate3d(-6rpx, 2rpx, 0) rotate(-2deg); }
+  80% { transform: translate3d(6rpx, 2rpx, 0) rotate(2deg); }
+}
